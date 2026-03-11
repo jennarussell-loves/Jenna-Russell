@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Pattern Field</title>
+
+<style>
+
+body{
+font-family:Georgia,serif;
+background:#f4efe6;
+margin:0;
+color:#222;
+}
+
+header{
+text-align:center;
+padding:40px;
+background:linear-gradient(45deg,#ff6ec7,#ffd166,#7df9ff);
+color:white;
+}
+
+section{
+max-width:900px;
+margin:auto;
+padding:40px;
+}
+
+.scrap{
+background:white;
+padding:20px;
+margin:20px 0;
+border:2px solid #ddd;
+box-shadow:6px 6px 0 #ccc;
+}
+
+button{
+padding:10px 16px;
+border:none;
+background:#222;
+color:white;
+cursor:pointer;
+margin:5px;
+}
+
+button:hover{
+background:#444;
+}
+
+.card{
+display:inline-block;
+width:150px;
+height:200px;
+background:#faf7ff;
+border:2px dashed #a68cff;
+margin:10px;
+padding:10px;
+text-align:center;
+vertical-align:top;
+}
+
+.symbol{
+font-size:35px;
+}
+
+.title{
+font-weight:bold;
+margin-top:5px;
+}
+
+.meaning{
+font-size:14px;
+margin-top:5px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>The Pattern Field</h1>
+<p>A scrapbook of symbolic systems and playable mythology</p>
+</header>
+
+<section>
+
+<h2>Pattern Field Oracle</h2>
+
+<div class="scrap">
+
+<button onclick="drawOne()">Draw Card</button>
+<button onclick="drawThree()">3-Card Spread</button>
+<button onclick="drawConstellation()">Constellation Spread</button>
+
+<div id="cards"></div>
+
+</div>
+
+</section>
+
+<script>
+
+const deck=[
+
+{symbol:"🌈",title:"The Spectrum",meaning:"Perceiving many layers at once."},
+
+{symbol:"🌀",title:"The Spiral",meaning:"A pattern returns in evolved form."},
+
+{symbol:"🔥",title:"Signal Fire",meaning:"Expression activates the field."},
+
+{symbol:"🗝",title:"Hidden Key",meaning:"A small insight unlocks a larger system."},
+
+{symbol:"🧭",title:"Navigator",meaning:"You are mapping unknown territory."},
+
+{symbol:"🌙",title:"Dream Gate",meaning:"Symbolic signals are emerging."},
+
+{symbol:"⚡",title:"Pattern Break",meaning:"Disruption reveals a deeper order."},
+
+{symbol:"🌊",title:"Emotional Current",meaning:"Feeling carries information."},
+
+{symbol:"🪞",title:"The Mirror",meaning:"Recognition through reflection."},
+
+{symbol:"🌱",title:"Emergence",meaning:"Something subtle is growing."},
+
+{symbol:"🎭",title:"Living Myth",meaning:"Identity shifts through narrative."},
+
+{symbol:"🔮",title:"The Field",meaning:"You are sensing the pattern space."},
+
+{symbol:"🕸",title:"Web Weaver",meaning:"Connections are forming."},
+
+{symbol:"🌞",title:"Illumination",meaning:"Clarity arrives suddenly."},
+
+{symbol:"🌑",title:"The Unknown",meaning:"Mystery is active."},
+
+{symbol:"🕊",title:"Release",meaning:"Let something move freely."},
+
+{symbol:"🎨",title:"Creative Pulse",meaning:"Make something tangible."},
+
+{symbol:"📡",title:"Signal Receiver",meaning:"You are picking up subtle information."},
+
+{symbol:"🧩",title:"Missing Piece",meaning:"Integration is close."},
+
+{symbol:"🚪",title:"Threshold",meaning:"A transition is occurring."},
+
+{symbol:"🌌",title:"Cosmic Context",meaning:"Zoom out to the larger pattern."},
+
+{symbol:"🪶",title:"Lightness",meaning:"Meaning emerges through play."}
+
+];
+
+function randomCard(){
+return deck[Math.floor(Math.random()*deck.length)];
+}
+
+function render(cards){
+
+let html="";
+
+cards.forEach(card=>{
+html+=`
+<div class="card">
+<div class="symbol">${card.symbol}</div>
+<div class="title">${card.title}</div>
+<div class="meaning">${card.meaning}</div>
+</div>
+`;
+});
+
+document.getElementById("cards").innerHTML=html;
+}
+
+function drawOne(){
+
+render([randomCard()]);
+
+}
+
+function drawThree(){
+
+let spread=[
+randomCard(),
+randomCard(),
+randomCard()
+];
+
+render(spread);
+
+}
+
+function drawConstellation(){
+
+let spread=[
+randomCard(),
+randomCard(),
+randomCard(),
+randomCard(),
+randomCard()
+];
+
+render(spread);
+
+}
+
+</script>
+
+</body>
+</html>
